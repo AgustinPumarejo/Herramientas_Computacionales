@@ -19,8 +19,14 @@ aim = vector(0, -10)
 
 def change(x, y):
     "Change snake direction."
-    aim.x = x
-    aim.y = y
+    if len(snake) > 1:
+        if snake[-1] + vector(x, y) != snake[-2]:
+            
+            aim.x = x
+            aim.y = y
+    else:
+        aim.x = x
+        aim.y = y
 
 def inside(head):
     "Return True if head inside boundaries."
