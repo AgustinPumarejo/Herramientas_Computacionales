@@ -158,7 +158,7 @@ def move():
 
         up()#Se agrego una variable de colores la cual fue una lista, 
         #despues se añadio en el choice la variable y esto genera unos fantasmas con varios colores,
-        #que cambian conforme pasa el tiempo."
+        #que cambian conforme pasa el tiempo.
         goto(point.x + 10, point.y + 10)
         colors_f=['cyan','red','green','chocolate']
         dot(20,choice(colors_f))
