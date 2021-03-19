@@ -10,12 +10,14 @@ Exercises
 """
 
 from turtle import *
+from random import choice
 from random import randrange
 from freegames import square, vector
 
-food = vector(0, 0)
+food= vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+
 
 def change(x, y):
     "Change snake direction."
@@ -25,6 +27,7 @@ def change(x, y):
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
+
 
 def move():
     "Move snake forward one segment."
@@ -38,17 +41,21 @@ def move():
 
     snake.append(head)
 
-    if head == food:
+    food_check = vector(0,0)
+     
+
+    if head== food:
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10
+        food.y = randrange(-15, 15) * 10    
     else:
         snake.pop(0)
-
     clear()
 
+    colors_f=['cyan','blue','Dark violet','black','chocolate']
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9,choice(colors_f))
+        
 
     square(food.x, food.y, 9, 'green')
     update()
