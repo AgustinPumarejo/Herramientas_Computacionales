@@ -1,11 +1,10 @@
-"""Snake, classic arcade game.
+"""
+Agustín Pumarejo A01028997
+Sebastián Buendía A01027761
+Santiago Cano A01029164
 
-Exercises
-
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to arrow keys.
+Agustín - Fixed the issue where the snake can turn 180°
+Sebastián - Changed the color of the snake
 
 """
 
@@ -19,9 +18,10 @@ aim = vector(0, -10)
 
 def change(x, y):
     "Change snake direction."
+    #Added a condition for checking if the snake is only one block long, in which case it can move everywhere
     if len(snake) > 1:
+        #Here the direction the snake is aiming can´t be changed 180° so the snake doesn´t crash onto itself right away
         if snake[-1] + vector(x, y) != snake[-2]:
-            
             aim.x = x
             aim.y = y
     else:
