@@ -14,6 +14,10 @@ from random import choice
 from turtle import *
 from freegames import floor, vector
 
+#Se agregaron dos fantasmas mas, 
+#se puede observar en ghosts como se añadieron
+#dos vectores con posiciones diferentes.
+
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
@@ -125,6 +129,7 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
+
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -139,7 +144,9 @@ def move():
             course.x = plan.x
             course.y = plan.y
 
-        up()
+        up()#Se agrego una variable de colores la cual fue una lista, 
+        #despues se añadio en el choice la variable y esto genera unos fantasmas con varios colores,
+        #que cambian conforme pasa el tiempo."
         goto(point.x + 10, point.y + 10)
         colors_f=['cyan','red','green','chocolate']
         dot(20,choice(colors_f))

@@ -43,7 +43,8 @@ def move():
     snake.append(head)
 
     food_check = vector(0,0)
-
+# Se creo un loop el cual compara las cordenadas de la comida y verifica que no esten dentro de la serpiente, 
+# asi evitando comida que aparezca dentro de la serpente.
     if head == food:
         print('Snake:', len(snake))
         while food_check in snake:
@@ -55,7 +56,8 @@ def move():
         snake.pop(0)
 
     clear()
-
+# Se importo la funcion choice de una libreria y se uso en el color,
+# creando una variable con colores se hizo que la sepriente fuera de varios colores cambiando conforme el tiempo
     colors_f=['cyan','blue','Dark violet','black','chocolate']
     for body in snake:
         square(body.x, body.y, 9,choice(colors_f))
