@@ -31,6 +31,7 @@ def inside(head):
 
 def move():
     "Move snake forward one segment."
+    global food
     head = snake[-1].copy()
     head.move(aim)
 
@@ -42,14 +43,17 @@ def move():
     snake.append(head)
 
     food_check = vector(0,0)
-     
 
-    if head== food:
+    if head == food:
         print('Snake:', len(snake))
-        food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10    
+        while food_check in snake:
+            x1=randrange(-15, 15) * 10
+            y1= randrange(-15, 15) * 10
+            food_check = vector(x1,y1)
+        food=food_check   
     else:
         snake.pop(0)
+
     clear()
 
     colors_f=['cyan','blue','Dark violet','black','chocolate']
